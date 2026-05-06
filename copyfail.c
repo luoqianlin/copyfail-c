@@ -123,7 +123,7 @@ static void init_aead_request_state(struct aead_request_state *request,
 {
     struct cmsghdr *cmsg;
     struct af_alg_iv *iv;
-    uint32_t op = 0;
+    uint32_t op = ALG_OP_DECRYPT;
     uint32_t assoc_len = AEAD_ASSOC_DATA_LEN;
 
     memset(request, 0, sizeof(*request));
