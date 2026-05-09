@@ -4,20 +4,28 @@ A minimal C reproduction for researching Copy Fail (CVE-2026-31431).
 
 This repository contains a compact C implementation built around the Linux kernel `AF_ALG` interface for vulnerability research, behavior analysis, and controlled reproduction.
 
+## Repository layout
+
+```text
+.
+├── src/    # C source
+├── dist/   # built binary artifacts
+```
+
 ## Build
 
 ```bash
 make
 ```
 
-The resulting binary is `./copyfail`.
+The resulting binary is `./dist/copyfail`.
 
 ## Run
 
 The program requires one input file path argument. For example:
 
 ```bash
-./copyfail "$(which su)"
+./dist/copyfail "$(which su)"
 ```
 
 `<input_path>` is opened read-only and used as the `splice()` source on each iteration, always starting from file offset `0`. A common choice is a readable SUID-root ELF such as `/usr/bin/su`.

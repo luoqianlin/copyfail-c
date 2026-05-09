@@ -1,1 +1,5 @@
-copyfail
+/.idea
+/.venv
+/tools/__pycache__
+/dist/copyfail
+/dist/drop_file_cache
